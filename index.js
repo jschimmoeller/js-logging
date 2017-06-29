@@ -10,7 +10,11 @@ var logger = new (winston.Logger)({
   transports: [
     // colorize the output to the console
     new (winston.transports.Console)({
-      level: 'debug'
+      level: 'debug',
+      formatter: function (options) {
+        // Return string will be passed to logger.
+        return  "custom stuff here: "+options.message;
+      },
     })
   ]
 });
