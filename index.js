@@ -10,7 +10,7 @@ var logger = new (winston.Logger)({
   transports: [
     // colorize the output to the console
     new (winston.transports.Console)({
-      level: 'debug',
+      level: 'tracer',
       formatter: function (options) {
         //console.log('args:', options)
         // Return string will be passed to logger.
@@ -21,5 +21,5 @@ var logger = new (winston.Logger)({
 });
 
 logger.log('tracer', 'test tracer', 1,2,3, {a:1,b:2,c:'a'});
-// logger.log('debug', 'test debug');
-// logger.tracer('a');
+logger.log('debug', 'test debug');
+logger.tracer('a');
